@@ -1,0 +1,16 @@
+.owner-badge{
+    padding-top: 1em;
+    .name-tag{
+        float: right;
+        margin-left: 20px;
+        h3{
+            margin-bottom: 0;
+            font-size: larger;
+        }
+        span {
+            margin-top: 10px;
+            color: var(--ion-color-primary);
+            font-size: smaller;
+        }
+    }
+}

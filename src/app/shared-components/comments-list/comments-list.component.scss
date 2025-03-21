@@ -1,0 +1,35 @@
+.comments-container{
+    border-top: 0.5px solid darkgray;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    .actions-btn{
+        justify-self: end;
+    }
+
+    .timestamp{
+        font-size: small;
+        color: darkgray;
+        margin-top: 1.2rem;
+    }
+}
+
+.comment-card {
+    margin-bottom: 2em;
+
+}
+
+.no-comments{
+    padding: 2em;
+    color: var(--ion-color-lightgray);
+}
+
+.text-container{
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    max-width: 65ch;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    margin: 0 3ch 0.7em 0.7em;
+}

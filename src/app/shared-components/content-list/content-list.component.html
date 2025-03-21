@@ -1,0 +1,26 @@
+<div class="feeds-list-container">
+  <!-- pull down refresh content  -->
+  <ion-refresher slot="fixed" 
+  pullMin="200"
+  (ionRefresh)="onRefresh($event)"
+  >
+  <ion-refresher-content
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+  </ion-refresher-content>
+  </ion-refresher>
+
+  <app-content-details (onClickContentActions)="handleContentActions($event)" #contentDetail *ngFor="let item of items" (onClickContent)="openDetailPage($event)" [item]="item"></app-content-details>
+
+  <!-- infinite scroll  -->
+  <ion-infinite-scroll
+      (ionInfinite)="onLoadMore($event)"
+      >
+    <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more..."
+      >
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>

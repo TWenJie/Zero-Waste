@@ -1,0 +1,7 @@
+<div class="owner-badge">
+  <app-avatar [height]="40" [width]="40" [image]="userProfile?.avatar ?? fallbackImage"></app-avatar>
+  <div class="name-tag">
+    <h3>{{userProfile.fullname}}</h3>
+    <span>@{{userProfile.username}}</span>
+  </div>
+</div>

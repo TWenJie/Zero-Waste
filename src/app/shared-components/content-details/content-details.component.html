@@ -1,0 +1,49 @@
+<ion-card *ngIf="item">
+  <ion-card-content>
+    <ion-row>
+      <ion-col class="feed">
+        <app-owner-badge [userProfile]="item.author"></app-owner-badge>
+        <span class="timestamp">{{ item.createdAt | date: 'mediumDate' ?? 'recently'}}</span>
+        <ion-buttons (click)="openContentActions()" class="actions-btn">
+          <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="12">
+        <div  class="feed-content">
+          <app-text-content [textContent]="item.textContent" (click)="openDetailPage()"></app-text-content>
+          <div *ngIf="item?.title" class="event-heading">
+            <h4 class="event-title">{{item.title}}</h4>
+            <p class="event-time" *ngIf="item.startTime"> start: {{item.startTime | date:'mediumDate' || 'none'}}</p>
+            <p class="event-time" *ngIf="item.endTime"> end: {{item.endTime | date:'mediumDate'}}</p>
+          </div>
+
+          <youtube-player class="w-full" *ngIf="videoId"
+            #YTPlayer
+            [height]="240"
+            [width]="320"
+            [videoId]="videoId"
+            (stateChange)="onVideoStateChange($event)"
+            >
+              
+          </youtube-player>
+          
+          <app-image-slider *ngIf="item.resources" [images]="item.resources"></app-image-slider>
+          <div *ngIf="safeDataStudioURL">
+            <iframe width="300" height="250" [src]="safeDataStudioURL" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <app-engagement-buttons
+          [liked]="item.liked" 
+          [commentsCount]="item.commentsCount" 
+          [likesCount]="item.likesCount"
+          (commentClickHandler)="openDetailPage(item)"
+          (likeClickHandler)="likePost()"
+        ></app-engagement-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
